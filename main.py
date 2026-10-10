@@ -11,6 +11,7 @@ from tvshows.report import build_summary, write_summary
 
 
 def main():
+    """Main function to fetch TV show records, compute aggregations, and write a summary."""
     source = TVMazeSource(URL, TIMEOUT)
     shows = source.fetch()
 
@@ -28,4 +29,5 @@ def main():
 
 
 if __name__ == "__main__":
+    """Run the main function if this script is executed directly."""
     main()

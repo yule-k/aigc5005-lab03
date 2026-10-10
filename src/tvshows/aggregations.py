@@ -1,10 +1,12 @@
 #base class and subclasses
 
 class Aggregation:
+    """Base class for aggregations."""
     def compute(self, shows):
         raise NotImplementedError
     
 class GenreCount(Aggregation):
+    """Count the number of shows in each genre."""
     name = "genres"
 
     def compute(self, shows):
@@ -16,6 +18,7 @@ class GenreCount(Aggregation):
         return genre_counts
 
 class AverageRatingByLanguage(Aggregation):
+    """Calculate the average rating for each language."""
     name = "average ratings by language"
 
     def compute(self, shows):
@@ -41,8 +44,8 @@ class AverageRatingByLanguage(Aggregation):
         return avg_ratings
 
 class ShowsPerDecade(Aggregation):
-    name = "shows premiered per decade"
     """Count the number of shows that premiered in each decade."""
+    name = "shows premiered per decade"
 
     def compute(self, shows):
         decade_counts = {}
