@@ -10,14 +10,13 @@ The API returns roughly 240 TV show records.
 
 ## Setup
 Create the Conda environment:
-```bash
 conda env create -f environment.yml
 pip install -r requirements.txt
 
 ## Run
 python main.py
 
-##Test
+# Test
 python -m unittest discover -s tests
 
 ## Layout
@@ -35,15 +34,30 @@ main.py Acts as the entry point and connects the source, aggregations, and repor
 
 ## What moved where
 tvmaze() → TVMazeSource.fetch() in `sources.py`
+
+
 number_genres() → GenreCount.compute() in `aggregations.py`
+
+
 average_rating_by_language() → AverageRatingByLanguage.compute() in `aggregations.py`
+
+
 shows_per_decade() → ShowsPerDecade.compute() in `aggregations.py`
+
+
 Summary + JSON writing → `report.py`
 
 ## Design choices
 `TVShow` represents one cleaned TV show record.
+  
 `TVMazeSource` handles downloading data and converts raw dictionaries into `TVShow` objects.
-`Aggregation` is the base class for the summary calculations. `GenreCount`, `AverageRatingByLanguage`, and `ShowsPerDecade` inherit from it and override `compute()`.
+
+
+`Aggregation` is the base class for the summary calculations.
+
+`GenreCount`, `AverageRatingByLanguage`, and `ShowsPerDecade` inherit from it and override `compute()`.
+
+
 To add a new aggregation, create another subclass of `Aggregation` and define its own `compute()` method.
 
 ## Known limitations
