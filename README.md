@@ -20,17 +20,17 @@ python main.py
 python -m unittest discover -s tests
 
 ## Layout
-config.py Stores shared settings such as the TVMaze source URL, request timeout, and output path.
+`config.py` Stores shared settings such as the TVMaze source URL, request timeout, and output path.
 
-model.py Contains the TVShow class, which represents one TV show record and cleans or prepares values such as language, rating, year, and decade.
+`model.py` Contains the TVShow class, which represents one TV show record and cleans or prepares values such as language, rating, year, and decade.
 
-sources.py Contains the class responsible for downloading data from the TVMaze API and converting raw dictionaries into TVShow objects. This is the only module that imports requests.
+`sources.py` Contains the class responsible for downloading data from the TVMaze API and converting raw dictionaries into TVShow objects. This is the only module that imports requests.
 
-aggregations.py Contains the Aggregation base class and the aggregation subclasses that summarize TV show data.
+`aggregations.py` Contains the Aggregation base class and the aggregation subclasses that summarize TV show data.
 
-report.py Builds the final summary dictionary from the aggregation results and writes it to a JSON file.
+`report.py` Builds the final summary dictionary from the aggregation results and writes it to a JSON file.
 
-main.py Acts as the entry point and connects the source, aggregations, and report-writing logic.
+`main.py` Acts as the entry point and connects the source, aggregations, and report-writing logic.
 
 ## What moved where
 tvmaze() → TVMazeSource.fetch() in `sources.py`
